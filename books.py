@@ -19,13 +19,9 @@ def borrow_book(title, author):
             book['availability'] = False #make it false because they borrowed it+
             return f'The book {title} has been borrowed.'
 
-        elif title != book['title'] and author != book['author']: #if not in library
-            return f"There is no book named {title} by {author}."
+    return f"We either don't own the book {title} by {author} or it's currently already borrowed, sorry."
 
-        elif title == book['title'] and author == book['author'] and book['availability'] == False: #if in library but not available
-            return f"There is a book named {title} by {author}, but it is not available."
-            
-               
+
 
 def return_book(title, author):
     for book in library_books: #repeat for every book
@@ -33,28 +29,14 @@ def return_book(title, author):
             book['availability'] = True #make it false because they returned it
             return f'The book {title} by {author} has been returned.'
 
-        elif title != book['title'] and author != book["author"]: #if not in library
-            return f"You're returning the book {title} by {author} to the wrong library, buddy."
-
-        elif title == book['title'] and author == book["author"] and book['availability'] == True: #is available
-            return f"We have the book {title} but it was never borrowed."
+    return f"We either don't own the book {title} by {author} or it was never borrowed, sorry."
 
 
 def find_book(title, author,):
     for book in library_books: #repeat for every book
         if title == book['title'] and author == book["author"] and book['availability']:
-            return f"We own the book {title} by {author} and you are able to borrow it!"
+            return f"We own the book {title} by {author}."
 
-        elif title == book['title'] and author == book["author"] and book['availability'] == False:
-            return f"We own the book {title} by {author}, but someone is currently borrowing it. "
+    return f"We do not have this book, sorry."
 
-        elif title == book['title'] and author != book["author"]:
-            return f"We own the book {title}, but it wasn't written by {author}."
 
-        elif title != book['title'] and author == book["author"]:
-            return f"We do not own the book {title}, but we do have other books by {author}."
-
-        elif title != book['title'] and author != book["author"]:
-            return f"We do not own the book {title} by {author}."
-
-        

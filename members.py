@@ -12,6 +12,6 @@ def find_member(name):
     for member in library_members:
         if name == member:
             return f"{name} is a member."
-        else:
-            return f"{name} is not a member."
+
+    return f"{name} is not a member."
 
